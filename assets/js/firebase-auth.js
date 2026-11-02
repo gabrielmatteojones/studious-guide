@@ -10,7 +10,7 @@ const fail=e=>{console.error(e);msg(ERR[e.code]||('Errore di accesso ('+(e.code|
 try{await setPersistence(auth,browserLocalPersistence)}catch(e){console.warn(e)}
 onAuthStateChanged(auth,u=>{
  $$('[data-acct]').forEach(a=>{a.textContent=u?'Area utenti':'Accedi';a.href=u?'/area-utenti/':'/accedi/'});
- if(location.pathname==='/accedi/'&&u)location.replace('/area-utenti/');
+ if(location.pathname==='/accedi/'&&u){const n=new URLSearchParams(location.search).get('next');location.replace(n&&/^\/[^\/]/.test(n)?n:'/area-utenti/')}
  if(location.pathname==='/area-utenti/'){
   $('#needlogin').hidden=!!u;$('#userarea').hidden=!u;
   $('#uwho').textContent=u?('Ciao '+(u.displayName||u.email)+'!'):'Accesso richiesto.';

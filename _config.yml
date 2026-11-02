@@ -1,4 +1,4 @@
-title: Gabriel Jones
+2°title: Gabriel Jones
 description: Web developer, grafico ed educatore. Creatore di Playbook, schede gioco per educatori e animatori.
 url: "https://TUO-SITO.netlify.app"   # sostituisci con il dominio definitivo
 lang: it
@@ -14,7 +14,7 @@ defaults:
     values: { layout: document }
   - scope: { path: "", type: guides }
     values: { layout: guide }
-exclude: [README.md, Gemfile, Gemfile.lock, netlify, netlify.toml, node_modules, vendor]
+exclude: [README.md, firebase, Gemfile, Gemfile.lock, netlify, netlify.toml, node_modules, vendor]
 
 # --- Dati del titolare: compila prima di andare online (usati nelle pagine legali) ---
 legal:
@@ -45,3 +45,9 @@ letterhead:
 
 # Netlify Identity: lascia vuoto sul sito Netlify. Per provare in locale metti https://TUO-SITO.netlify.app/.netlify/identity
 identity_url: ""
+
+# --- Drive personale ---
+# storage: "firestore" = file fino a 600 KB salvati in Firestore (gratis, piano Spark)
+#          "firebase"  = file fino a 25 MB su Cloud Storage (richiede il piano Blaze di Firebase)
+drive:
+  storage: firestore

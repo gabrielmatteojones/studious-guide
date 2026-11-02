@@ -10,6 +10,7 @@ noindex: true
 <div id="needlogin" hidden><p class="sub">Questa area è riservata agli utenti registrati.</p><a class="btn ban" href="/accedi/">Accedi o registrati</a></div>
 <div id="userarea" hidden>
  <div class="box" style="grid-template-columns:1fr 1fr"><div><span>Email</span><b style="font-size:1.4rem;color:#fff;overflow-wrap:anywhere" id="uemail"></b></div><div><span>Verifica email</span><b style="font-size:1.4rem;color:#fff" id="uver"></b></div></div>
+ <div class="row"><a class="btn ban" href="/drive/">Apri il mio Drive →</a></div>
  <div class="head" style="margin-top:6vh"><h2>Materiali riservati</h2></div>
  <div class="docs">{% for d in site.documents %}{% if d.reserved %}<a class="doc" href="{{ d.url }}"><i>{{ d.format | default: "PDF" }}</i><div><b>{{ d.title }}</b><span>{{ d.date | date: "%d/%m/%Y" }}</span></div></a>{% endif %}{% else %}{% endfor %}</div>
  <p class="sub">Per le schede gioco complete vai all’<a href="https://progettoplaybook.it/" target="_blank" rel="noopener"><b>area riservata Playbook</b></a>.</p>

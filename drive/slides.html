@@ -1,0 +1,23 @@
+---
+layout: default
+title: Presentazione
+permalink: /drive/slides/
+firebase: true
+noindex: true
+sitemap: false
+nofooter: true
+extra_css:
+  - /assets/css/drive.css
+extra_js:
+  - https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js
+  - /assets/js/pptx-template.js
+extra_modules:
+  - /assets/js/slides.js
+---
+<div class="edtop"><a class="btn" href="/drive/" style="padding:8px 16px">← Drive</a><input class="ttl" id="title" aria-label="Titolo della presentazione" placeholder="Presentazione senza titolo"><span class="st" id="st">…</span>
+ <span class="eacts"><button class="chip" id="present">▶ Presenta</button><button class="chip" id="expptx">⬇ PowerPoint (.pptx)</button></span></div>
+<div class="sl"><aside class="sthumbs" id="thumbs"></aside>
+ <div class="smain"><div class="stage" id="stage"></div>
+  <form class="sform" id="sform" onsubmit="return false"></form>
+  <div class="row" style="margin-top:12px"><button class="chip" id="sadd">＋ Nuova slide</button><button class="chip" id="sdup">⧉ Duplica</button><button class="chip" id="sup">↑</button><button class="chip" id="sdn">↓</button><button class="chip" id="sdel">🗑 Elimina</button></div></div></div>
+<div class="pres" id="pres" hidden><button class="x" id="pclose">Esci ✕</button><div class="stage big" id="pstage"></div></div>

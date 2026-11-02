@@ -1,0 +1,17 @@
+---
+layout: default
+title: Foglio di calcolo
+permalink: /drive/sheet/
+firebase: true
+noindex: true
+sitemap: false
+nofooter: true
+extra_css:
+  - /assets/css/drive.css
+extra_modules:
+  - /assets/js/sheet.js
+---
+<div class="edtop"><a class="btn" href="/drive/" style="padding:8px 16px">← Drive</a><input class="ttl" id="title" aria-label="Titolo del foglio" placeholder="Foglio senza titolo"><span class="st" id="st">…</span>
+ <span class="eacts"><button class="chip" id="addrow">＋ Righe</button><button class="chip" id="imp">⬆ Importa CSV</button><button class="chip" id="exp">⬇ Esporta CSV</button><input type="file" id="impf" accept=".csv,text/csv" hidden></span></div>
+<div class="fbar"><span id="cell">A1</span><input id="fx" aria-label="Barra della formula" placeholder="Scrivi un valore o una formula, per esempio =SOMMA(A1:A5)"></div>
+<div class="gridwrap"><table class="sheet" id="sh"></table></div>

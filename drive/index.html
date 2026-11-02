@@ -1,0 +1,26 @@
+---
+layout: default
+title: Il mio Drive
+permalink: /drive/
+firebase: true
+noindex: true
+sitemap: false
+nofooter: true
+extra_css:
+  - /assets/css/drive.css
+extra_modules:
+  - /assets/js/drive.js
+---
+<div class="drv" id="drv">
+ <aside class="dside">
+  <div class="newwrap"><button class="btn ban" id="newbtn" aria-haspopup="true">＋ Nuovo</button>
+   <div class="newmenu" id="newmenu" hidden><button data-n="folder">📁 Cartella</button><button data-n="doc">📝 Documento</button><button data-n="slides">🎞️ Presentazione</button><button data-n="sheet">📊 Foglio di calcolo</button><button data-n="file">⬆️ Carica file…</button></div></div>
+  <nav class="dnav" id="dnav"><button class="on" data-v="drive">📁 Il mio Drive</button><button data-v="recent">🕘 Recenti</button><button data-v="trash">🗑️ Cestino</button></nav>
+  <div class="usage" id="usage"></div><input type="file" id="up" multiple hidden>
+ </aside>
+ <section class="dmain" id="dmain">
+  <div class="dbar"><div class="crumbs" id="crumbs"></div><input class="search" id="dq" type="search" placeholder="Cerca nel Drive…" aria-label="Cerca nel Drive"><button class="chip" id="vw" title="Cambia vista">▦ ☰</button></div>
+  <div class="dgrid" id="dlist"></div><p class="sub" id="dempty" hidden></p>
+  <div class="dropz" id="dz" hidden>Rilascia i file per caricarli</div>
+ </section>
+</div>

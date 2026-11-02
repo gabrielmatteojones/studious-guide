@@ -13,18 +13,20 @@
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 {% feed_meta %}
 {% if page.netlify_identity %}<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>{% endif %}
-<script>window.FIREBASE_CONFIG={{ site.firebase | jsonify }};</script>
+{% for c in page.extra_css %}<link rel="stylesheet" href="{{ c }}">{% endfor %}
+<script>window.FIREBASE_CONFIG={{ site.firebase | jsonify }};window.DRIVE={{ site.drive | jsonify }};window.LH={{ site.letterhead | jsonify }};window.LEGAL={{ site.legal | jsonify }};</script>
 </head>
 <body data-path="{{ page.url }}"{% if page.firebase or page.reserved %} data-firebase="1"{% endif %}>
 <div class="bar" id="bar"></div>
 {% include header.html %}
 {% include overlay.html %}
 <main>{{ content }}</main>
-{% include footer.html %}
+{% unless page.nofooter %}{% include footer.html %}{% endunless %}
 {% include cookie-banner.html %}
 <div class="toast" id="toast" role="status"></div>
 <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 <script type="module" src="{{ '/assets/js/cookies.js' | relative_url }}"></script>
+{% for m in page.extra_modules %}<script type="module" src="{{ m }}"></script>{% endfor %}
 {% if page.extra_js %}{% for j in page.extra_js %}<script src="{{ j }}" defer></script>{% endfor %}{% endif %}
 </body>
 </html>

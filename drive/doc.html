@@ -1,0 +1,23 @@
+---
+layout: default
+title: Documento
+permalink: /drive/doc/
+firebase: true
+noindex: true
+sitemap: false
+nofooter: true
+extra_css:
+  - /assets/css/drive.css
+extra_js:
+  - https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js
+extra_modules:
+  - /assets/js/doc.js
+---
+<div class="edtop"><a class="btn" href="/drive/" style="padding:8px 16px">← Drive</a><input class="ttl" id="title" aria-label="Titolo del documento" placeholder="Documento senza titolo"><span class="st" id="st">…</span>
+ <span class="eacts"><button class="chip" id="exdoc">⬇ Word (.doc)</button><button class="chip" id="expdf">⬇ PDF su carta intestata</button><button class="chip" id="print">🖨 Stampa</button></span></div>
+<div class="tb" id="tb"><select id="blk" aria-label="Stile"><option value="p">Paragrafo</option><option value="h1">Titolo 1</option><option value="h2">Titolo 2</option><option value="h3">Titolo 3</option></select>
+ <button data-c="bold" title="Grassetto"><b>B</b></button><button data-c="italic" title="Corsivo"><i>I</i></button><button data-c="underline" title="Sottolineato"><u>U</u></button><input type="color" id="col" value="#6D0F2B" title="Colore testo">
+ <button data-c="justifyLeft" title="A sinistra">⯇</button><button data-c="justifyCenter" title="Centra">≡</button><button data-c="justifyRight" title="A destra">⯈</button>
+ <button data-c="insertUnorderedList" title="Elenco puntato">• ―</button><button data-c="insertOrderedList" title="Elenco numerato">1. ―</button><button id="lnk" title="Link">🔗</button>
+ <button data-c="undo" title="Annulla">↶</button><button data-c="redo" title="Ripristina">↷</button><button data-c="removeFormat" title="Cancella formattazione">Tx</button></div>
+<div class="paperwrap"><div class="paper" id="ed" contenteditable="true" spellcheck="true" aria-label="Testo del documento"></div></div>
