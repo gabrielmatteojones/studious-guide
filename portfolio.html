@@ -1,0 +1,12 @@
+---
+layout: default
+title: Portfolio
+permalink: /portfolio/
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Lavori</div><h1>Portfolio</h1><p>Progetti di sviluppo web, grafica ed educazione.</p><div class="meta">Gabriel Jones | 2026</div></div></div><div class="scal"></div>
+<section><div class="wrap"><div class="head rv"><div class="chips"><button class="chip on" data-f="all">Tutti</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="grafica">Grafica</button><button class="chip" data-f="edu">Educazione</button></div></div>
+<div class="grid rv">
+{% assign items = site.portfolio | sort: "date" | reverse %}{% for p in items %}
+<{% if p.link %}a href="{{ p.link }}" target="_blank" rel="noopener"{% else %}div tabindex="0"{% endif %} class="work" data-c="{{ p.cats }}"><small>{{ p.label }}</small><div><h3>{{ p.title }}</h3><p>{{ p.content | strip_html | strip }}</p></div></{% if p.link %}a{% else %}div{% endif %}>
+{% else %}<p class="sub">Nessun progetto ancora pubblicato.</p>{% endfor %}
+</div></div></section>

@@ -1,0 +1,47 @@
+title: Gabriel Jones
+description: Web developer, grafico ed educatore. Creatore di Playbook, schede gioco per educatori e animatori.
+url: "https://TUO-SITO.netlify.app"   # sostituisci con il dominio definitivo
+lang: it
+timezone: Europe/Rome
+plugins: [jekyll-sitemap, jekyll-feed]
+collections:
+  news:      { output: false, sort_by: date }
+  portfolio: { output: false }
+  documents: { output: true, permalink: /documenti/:name/ }
+  guides:    { output: true, permalink: /guide/:path/ }
+defaults:
+  - scope: { path: "", type: documents }
+    values: { layout: document }
+  - scope: { path: "", type: guides }
+    values: { layout: guide }
+exclude: [README.md, Gemfile, Gemfile.lock, netlify, netlify.toml, node_modules, vendor]
+
+# --- Dati del titolare: compila prima di andare online (usati nelle pagine legali) ---
+legal:
+  nome: "Gabriel Jones"
+  indirizzo: "[Via e numero civico, CAP, Città]"
+  email: "[email di contatto]"
+  pec: "[PEC, se presente]"
+  piva_cf: "[Partita IVA / Codice Fiscale]"
+  ultimo_aggiornamento: "1 novembre 2026"
+
+# --- Firebase (le chiavi web di Firebase sono pubbliche per progetto; la sicurezza si fa con Authorized domains e Rules) ---
+firebase:
+  apiKey: "AIzaSyD9bGxbIfVCX8B6PrioVSZf5_lc80d-ECo"
+  authDomain: "onlygabbyme.firebaseapp.com"
+  projectId: "onlygabbyme"
+  storageBucket: "onlygabbyme.firebasestorage.app"
+  messagingSenderId: "972205642428"
+  appId: "1:972205642428:web:341240a48ac994026a36b9"
+  measurementId: "G-MRNB4L2DP4"
+
+# --- Carta intestata (margini in mm dell'area scrivibile sul tuo foglio A4) ---
+letterhead:
+  image: /assets/img/carta-intestata.png
+  top: 52
+  bottom: 36
+  left: 22
+  right: 22
+
+# Netlify Identity: lascia vuoto sul sito Netlify. Per provare in locale metti https://TUO-SITO.netlify.app/.netlify/identity
+identity_url: ""

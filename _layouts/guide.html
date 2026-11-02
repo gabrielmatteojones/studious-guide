@@ -1,0 +1,10 @@
+---
+layout: default
+---
+{% assign mine = site.guides | where: "project", page.project | sort: "order" %}
+<div class="pagehead"><div class="wrap"><div class="crumb"><a href="/guide/" style="text-decoration:none">↖ Guide to use</a> / {{ page.project }}</div><h1>{{ page.title }}</h1>{% if page.summary %}<p>{{ page.summary }}</p>{% endif %}</div></div><div class="scal"></div>
+<section><div class="wrap wiki">
+ <aside class="wnav rv"><h3>{{ page.project }}</h3><ol>{% for g in mine %}<li><a href="{{ g.url }}"{% if g.url == page.url %} class="act"{% endif %}>{{ g.title }}</a></li>{% endfor %}</ol><a class="btn" href="/guide/" style="margin-top:18px;padding:10px 16px">Tutti i progetti</a></aside>
+ <article class="wbody rv">{{ content }}
+  <nav class="pn">{% for g in mine %}{% if g.url == page.url %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}{% assign pi = i | minus: 1 %}{% assign ni = i | plus: 1 %}{% assign prev = mine[pi] %}{% assign next = mine[ni] %}{% if i > 0 %}<a class="btn" href="{{ prev.url }}">← {{ prev.title }}</a>{% endif %}{% if next %}<a class="btn ban" href="{{ next.url }}">{{ next.title }} →</a>{% endif %}</nav></article>
+</div></section>

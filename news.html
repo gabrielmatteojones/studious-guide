@@ -1,0 +1,10 @@
+---
+layout: default
+title: News
+permalink: /news/
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Aggiornamenti</div><h1>News</h1><p>Novità dal lavoro e dalla ricerca.</p><div class="meta">Gabriel Jones | 2026</div></div></div><div class="scal"></div>
+<section><div class="wrap news rv">
+{% assign items = site.news | sort: "date" | reverse %}{% for n in items %}<a href="{{ n.link | default: '/news/' }}"><time>{{ n.date | date: "%d/%m/%Y" }}</time><h3>{{ n.title }}</h3><span>→</span></a>
+{% else %}<p class="sub">Nessuna notizia ancora pubblicata.</p>{% endfor %}
+</div></section>

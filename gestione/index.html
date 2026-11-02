@@ -1,0 +1,77 @@
+---
+layout: default
+title: Area gestionale
+permalink: /gestione/
+noindex: true
+sitemap: false
+netlify_identity: true
+extra_js:
+  - https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js
+  - /assets/js/pptx-template.js
+  - /assets/js/gestione.js
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Riservato al titolare</div><h1>Area gestionale</h1><p id="gwho">Accedi con il tuo account Netlify Identity.</p></div></div><div class="scal"></div>
+<section><div class="wrap" id="gest" data-lh="{{ site.letterhead.image }}" data-top="{{ site.letterhead.top }}" data-bottom="{{ site.letterhead.bottom }}" data-left="{{ site.letterhead.left }}" data-right="{{ site.letterhead.right }}" data-idurl="{{ site.identity_url }}" data-addr="{{ site.legal.indirizzo }}" data-mail="{{ site.legal.email }}" data-piva="{{ site.legal.piva_cf }}">
+<p class="msg" id="gerr" hidden></p>
+<div id="gate"><button class="btn ban" id="glogin">Accedi / Registrati</button><p class="sub" style="margin-top:14px">L’accesso è consentito solo agli utenti con ruolo <b>admin</b>.</p></div>
+<div id="panel" hidden>
+ <div class="chips" id="gtabs" style="margin-bottom:28px"><button class="chip on" data-p="cms">Contenuti del sito</button><button class="chip" data-p="pdf">Documenti con carta intestata</button><button class="chip" data-p="ppt">Presentazioni PPTX</button><button class="chip" id="glogout">Esci</button></div>
+
+ <div id="p-cms"><div class="gcols">
+  <div><h2 style="font-size:1.8rem">Contenuti esistenti</h2>
+   <label class="gl">Tipo<select id="ctype"><option value="_posts">Articolo del blog</option><option value="_news">News</option><option value="_portfolio">Progetto portfolio</option><option value="_documents">Documento scaricabile</option><option value="_guides">Guida (wiki)</option></select></label>
+   <ul class="glist" id="clist"><li>Caricamento…</li></ul></div>
+  <form class="form" id="cform"><h2 style="font-size:1.8rem">Crea o modifica</h2>
+   <input type="hidden" id="cpath">
+   <label>Titolo<input id="ctitle" required></label>
+   <label>Data<input id="cdate" type="date" required></label>
+   <label data-for="_posts">Categoria<input id="ccat" placeholder="Educazione"></label>
+   <label data-for="_portfolio">Etichetta<input id="clab" placeholder="Web · Educazione"></label>
+   <label data-for="_portfolio">Filtri (web, grafica, edu)<input id="ccats" placeholder="web edu"></label>
+   <label data-for="_guides">Progetto / sito / servizio<input id="cproj" placeholder="Playbook"></label>
+   <label data-for="_guides">Ordine nella wiki<input id="cord" type="number" min="1" value="1"></label>
+   <label data-for="_guides _documents">Riassunto / descrizione<input id="csum"></label>
+   <label data-for="_documents">File da caricare (max 3 MB: pdf, pptx, docx, xlsx, png, jpg)<input id="cfile" type="file" accept=".pdf,.pptx,.docx,.xlsx,.png,.jpg,.jpeg,.txt"></label>
+   <label data-for="_news _portfolio _documents">Link<input id="clink" placeholder="https://… oppure /pagina/"></label>
+   <label class="chk" data-for="_documents"><input type="checkbox" id="cres"> <span>Riservato (solo area utenti)</span></label>
+   <label>Testo (Markdown)<textarea id="cbody" rows="9"></textarea></label>
+   <div class="row" style="margin-top:6px"><button class="btn ban" type="submit">Salva e pubblica</button><button class="btn" type="button" id="cnew">Nuovo</button><button class="btn" type="button" id="cdel">Elimina</button></div>
+   <p class="msg" id="cmsg" hidden></p></form></div></div>
+
+ <div id="p-pdf" hidden><div class="gcols">
+  <form class="form" id="dform"><h2 style="font-size:1.8rem">Nuovo documento</h2>
+   <label>Modello<select id="dtype"><option value="lettera">Lettera</option><option value="attestato">Attestato di partecipazione</option><option value="preventivo">Preventivo</option></select></label>
+   <label>Luogo e data<input id="dwhen" required></label>
+   <label>Destinatario (una riga per elemento)<textarea id="dto" rows="3" required></textarea></label>
+   <label>Oggetto<input id="dsub" required></label>
+   <label>Testo<textarea id="dbody" rows="10" required></textarea></label>
+   <label>Firma<input id="dsign" value="Gabriel Jones"></label>
+   <div class="row" style="margin-top:6px"><button class="btn ban" type="submit">Anteprima</button><button class="btn" type="button" id="ddl">Scarica PDF</button><button class="btn" type="button" id="dsave">Salva nell’archivio</button></div>
+   <label class="chk"><input type="checkbox" id="dres" checked> <span>Nell’archivio: riservato agli utenti registrati</span></label>
+   <p class="msg" id="dmsg" hidden></p></form>
+  <div><h2 style="font-size:1.8rem">Anteprima</h2><iframe id="dprev" title="Anteprima PDF" class="prev"></iframe></div></div></div>
+
+ <div id="p-ppt" hidden><div class="gcols">
+  <form class="form" id="pform"><h2 style="font-size:1.8rem">Nuova presentazione</h2>
+   <label>Titolo<input id="ptitle" required value="Titolo della presentazione"></label>
+   <label>Sottotitolo<input id="psub" value="Sottotitolo o occasione"></label>
+   <label>Autore<input id="pauth" value="Gabriel Jones"></label>
+   <label>Data<input id="pdate"></label>
+   <label>Slide (una per blocco, separate da una riga vuota; prima riga = titolo, le altre = punti elenco)<textarea id="pbody" rows="12">Di cosa parleremo
+- Primo punto
+- Secondo punto
+
+Il progetto
+- Obiettivo
+- Come funziona
+
+Prossimi passi
+- Scadenze
+- Responsabilità</textarea></label>
+   <label>Frase finale<input id="pend" value="Grazie!"></label>
+   <label>Contatti nell’ultima slide<input id="pcont"></label>
+   <div class="row" style="margin-top:6px"><button class="btn ban" type="submit">Scarica PPTX</button><button class="btn" type="button" id="psave">Salva nell’archivio</button></div>
+   <p class="msg" id="pmsg" hidden></p></form>
+  <div><h2 style="font-size:1.8rem">Modello</h2><p class="sub">Il file generato usa i colori e i caratteri del sito: copertina bordò, slide interne con fascia e numero di pagina, chiusura scura. Puoi anche scaricare il modello vuoto.</p><a class="btn ban" href="/assets/templates/presentazione-modello.pptx" download>Scarica il modello</a></div></div></div>
+</div></div></section>

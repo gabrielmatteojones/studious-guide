@@ -1,0 +1,10 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Appunti</div><h1>Blog</h1><p>Codice, grafica e didattica. Clicca un articolo per aprirlo.</p><div class="meta">Gabriel Jones | 2026</div></div></div><div class="scal"></div>
+<section><div class="wrap" style="max-width:900px">
+{% for post in site.posts %}<div class="post rv" id="{{ post.slug }}"><button aria-expanded="false"><span><h3>{{ post.title }}</h3><div class="meta">{{ post.category }} · {{ post.date | date: "%d/%m/%Y" }}</div></span><span class="pl">+</span></button><div class="body"><div><div class="pbody">{{ post.content }}</div></div></div></div>
+{% else %}<p class="sub">Nessun articolo ancora pubblicato.</p>{% endfor %}
+</div></section>

@@ -1,0 +1,13 @@
+---
+layout: default
+title: Guide to use
+permalink: /guide/
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Wiki</div><h1>Guide to use</h1><p>Una guida per ogni progetto, sito o servizio: cos’è e come si usa, passo dopo passo.</p><div class="meta">Gabriel Jones | 2026</div></div></div><div class="scal"></div>
+<section><div class="wrap"><div class="head rv"><input class="search" id="gq" type="search" placeholder="Cerca nelle guide…" aria-label="Cerca nelle guide"></div>
+{% assign groups = site.guides | group_by: "project" %}
+{% for g in groups %}<div class="gproj rv" id="{{ g.name | slugify }}"><h2>{{ g.name }}</h2>
+ <div class="docs">{% assign items = g.items | sort: "order" %}{% for p in items %}<a class="doc gitem" href="{{ p.url }}"><i>{{ forloop.index }}</i><div><b>{{ p.title }}</b><span>{{ p.summary }}</span></div></a>{% endfor %}</div></div>
+{% else %}<p class="sub">Nessuna guida ancora pubblicata.</p>{% endfor %}
+<p class="empty" id="gempty">Nessuna guida trovata.</p></div></section>
+<script>document.getElementById('gq').addEventListener('input',function(){var v=this.value.toLowerCase(),n=0;document.querySelectorAll('.gitem').forEach(function(a){var m=a.textContent.toLowerCase().indexOf(v)>-1;a.style.display=m?'':'none';if(m)n++});document.querySelectorAll('.gproj').forEach(function(p){p.style.display=[].some.call(p.querySelectorAll('.gitem'),function(a){return a.style.display!=='none'})?'':'none'});document.getElementById('gempty').style.display=n?'none':'block'})</script>

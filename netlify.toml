@@ -1,0 +1,26 @@
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+  functions = "netlify/functions"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  RUBY_VERSION = "3.2.2"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/gestione/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Cache-Control = "no-store"
+
+[[redirects]]
+  from = "/admin"
+  to = "/gestione/"
+  status = 301

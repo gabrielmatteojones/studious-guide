@@ -1,0 +1,12 @@
+---
+layout: default
+title: Documenti
+permalink: /documenti/
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Materiali</div><h1>Documenti</h1><p>Guide, schede e materiali da scaricare.</p><div class="meta">Gabriel Jones | 2026</div></div></div><div class="scal"></div>
+<section><div class="wrap"><div class="head rv"><input class="search" id="q" type="search" placeholder="Cerca un documento…" aria-label="Cerca un documento"></div>
+<div class="docs rv">
+{% for d in site.documents %}{% unless d.reserved %}<a class="doc" href="{{ d.url }}"><i>{{ d.format | default: "PDF" }}</i><div><b>{{ d.title }}</b><span>{{ d.description | default: "Scheda del documento" | truncate: 70 }}</span></div></a>{% endunless %}
+{% endfor %}
+</div>
+<p class="empty" id="empty">Nessun documento trovato.</p></div></section>

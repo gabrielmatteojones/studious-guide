@@ -1,0 +1,24 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+<div class="hero"><div class="wrap">
+  <div class="hand hi">mi chiamo</div><div class="name">GABRIEL JONES</div>
+  <h1 id="h1">Costruisco siti, disegno idee, insegno a giocare.</h1>
+  <div class="row" style="justify-content:center"><a class="btn" href="/contatti/">Scrivimi</a><a class="btn ban" href="/playbook/">Scopri Playbook</a></div>
+  <div class="stk-wrap"><span class="stk s1 hand" style="font-size:1.4rem" tabindex="0">web developer</span><span class="stk s2 hand" style="font-size:1.4rem" tabindex="0">grafico</span><span class="stk s3 hand" style="font-size:1.4rem" tabindex="0">educatore</span><span class="stk s4 hand" style="font-size:1.4rem" tabindex="0">trascinami ✦</span></div>
+ </div></div>
+ <div class="check"></div>
+ <div class="lime"><svg class="rib rv" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 320 C150 380 220 60 380 120 S520 380 660 250 S860 40 1000 160 S1150 330 1230 120" stroke="#F0452A"/><path d="M-20 360 C150 420 220 100 380 160 S520 420 660 290 S860 80 1000 200 S1150 370 1230 160" stroke="#6F9BF2" style="transition-delay:.25s"/></svg>
+  <div class="wrap"><p class="oval rv">Un sito personale, una raccolta di 288 schede gioco per educatori e un’idea fissa: imparare funziona meglio quando è ben giocato.</p></div></div>
+ <div class="tabs"><a href="/portfolio/">Sviluppo web</a><a href="/portfolio/">Grafica</a><a href="/playbook/">Educazione</a></div>
+ <section><div class="wrap season"><div class="sign rv">Playbook</div>
+  <div class="rv"><h2>Oggi giochiamo!</h2><p class="sub">Schede gioco per educatori, animatori e catechisti: regole chiare, materiali, tempi e consigli pratici.</p>
+  <div class="stats"><div><b data-to="288">0</b><span>schede gioco</span></div><div><b data-to="7">0</b><span>libri tematici</span></div><div><b>4–18</b><span>anni</span></div></div>
+  <a class="btn ban" href="/playbook/">Entra nel progetto</a></div></div></section>
+ <section style="background:var(--aqua);color:#24121A"><div class="wrap"><div class="head rv"><h2>In evidenza</h2><div class="arrows"><button id="pv" aria-label="Indietro">←</button><button id="nx" aria-label="Avanti">→</button></div></div>
+  <div class="rail rv" id="rail"><a class="tile" href="/playbook/"><div class="e">🎲</div><h3>Playbook</h3><span>Scopri</span></a><a class="tile" href="/portfolio/"><div class="e">🎨</div><h3>Portfolio</h3><span>Sfoglia</span></a><a class="tile" href="/blog/"><div class="e">✏️</div><h3>Blog</h3><span>Leggi</span></a><a class="tile" href="/news/"><div class="e">📣</div><h3>News</h3><span>Segui</span></a><a class="tile" href="/documenti/"><div class="e">📄</div><h3>Documenti</h3><span>Scarica</span></a><a class="tile" href="/guide/"><div class="e">📚</div><h3>Guide to use</h3><span>Impara</span></a></div></div></section>
+ <section><div class="wrap"><div class="head rv"><div><h2>Dal blog</h2><p class="sub">Gli ultimi articoli.</p></div><a class="btn ban" href="/blog/">Tutti gli articoli</a></div>
+  <div class="grid rv">{% for post in site.posts limit:3 %}<a class="work" href="/blog/#{{ post.slug }}" data-c=""><small>{{ post.category }} · {{ post.date | date: "%d/%m/%Y" }}</small><div><h3>{{ post.title }}</h3><p>{{ post.excerpt | strip_html | truncate: 120 }}</p></div></a>{% else %}<p class="sub">Nessun articolo ancora pubblicato.</p>{% endfor %}</div></div></section>
+ <section class="quote"><div class="wrap"><p id="qt">Imparare funziona meglio quando sembra un gioco ben fatto.</p></div></section>

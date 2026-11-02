@@ -1,0 +1,16 @@
+---
+layout: default
+title: Contatti
+permalink: /contatti/
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Scrivimi</div><h1>Contatti</h1><p>Per progetti, laboratori o per segnalare un gioco.</p><div class="meta">Gabriel Jones | 2026</div></div></div><div class="scal"></div>
+<section><div class="wrap cgrid rv"><div>
+<form class="form" name="contatti" method="POST" action="/grazie/" data-netlify="true" netlify-honeypot="bot-field">
+ <input type="hidden" name="form-name" value="contatti"><p hidden><label>Non compilare: <input name="bot-field"></label></p>
+ <label>Nome<input name="nome" required autocomplete="name"></label>
+ <label>Email<input type="email" name="email" required autocomplete="email"></label>
+ <label>Messaggio<textarea name="messaggio" rows="6" required></textarea></label>
+ <label class="chk"><input type="checkbox" name="privacy" required> <span>Ho letto la <a href="/privacy/">Privacy policy</a> e acconsento al trattamento dei dati per ricevere risposta.</span></label>
+ <button class="btn ban" type="submit">Invia messaggio</button></form></div>
+<div><p class="sub" style="margin:0 0 14px">Oppure visita il progetto:</p><a class="btn ban" href="https://progettoplaybook.it/" target="_blank" rel="noopener">progettoplaybook.it</a>
+<p class="sub" style="margin-top:28px">Titolare: {{ site.legal.nome }}<br>{{ site.legal.indirizzo }}<br>{{ site.legal.email }}</p></div></div></section>

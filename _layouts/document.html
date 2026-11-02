@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% assign ext = page.format | default: "PDF" %}
+<div class="pagehead"><div class="wrap"><div class="crumb"><a href="/documenti/" style="text-decoration:none">↖ Documenti</a></div><h1>{{ page.title }}</h1>{% if page.description %}<p>{{ page.description }}</p>{% endif %}<div class="meta">{{ ext }} · {{ page.date | date: "%d/%m/%Y" }} · Gabriel Jones</div></div></div><div class="scal"></div>
+<section><div class="wrap scheda">
+ <div class="card-s rv">
+  <h2>Scheda del documento</h2>
+  <dl><dt>Titolo</dt><dd>{{ page.title }}</dd><dt>Formato</dt><dd>{{ ext }}</dd><dt>Data</dt><dd>{{ page.date | date: "%d/%m/%Y" }}</dd><dt>Autore</dt><dd>Gabriel Jones</dd><dt>Accesso</dt><dd>{% if page.reserved %}Riservato agli utenti registrati{% else %}Pubblico{% endif %}</dd>{% if page.description %}<dt>Descrizione</dt><dd>{{ page.description }}</dd>{% endif %}</dl>
+  {% if page.reserved %}<p class="msg" id="rlock">Questo documento è riservato. <a href="/accedi/" style="color:#fff;text-decoration:underline">Accedi</a> per scaricarlo.</p><a class="btn ban" id="rdl" href="{{ page.link }}" download hidden>Scarica {{ ext }}</a>
+  {% else %}<a class="btn ban" href="{{ page.link }}" download>Scarica {{ ext }}</a>{% endif %}
+  <a class="btn" href="/documenti/" style="margin-left:8px">Tutti i documenti</a>
+ </div>
+ <div class="rv">{{ content }}
+  {% if ext == "PDF" and page.reserved != true %}<iframe class="prev" src="{{ page.link }}" title="Anteprima di {{ page.title }}"></iframe>{% endif %}
+  {% if ext == "PNG" and page.reserved != true %}<img src="{{ page.link }}" alt="Anteprima di {{ page.title }}" style="max-width:100%;border:3px solid var(--ink);border-radius:20px">{% endif %}</div>
+</div></section>

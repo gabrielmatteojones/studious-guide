@@ -1,0 +1,15 @@
+---
+layout: default
+title: Accedi
+permalink: /accedi/
+firebase: true
+extra_js: []
+---
+<div class="pagehead"><div class="wrap"><div class="crumb">↖ Account</div><h1>Accedi</h1><p>Accesso riservato agli utenti autorizzati.</p></div></div><div class="scal"></div>
+<section><div class="wrap" style="max-width:560px">
+<div class="chips" id="atabs" role="tablist" style="margin-bottom:24px"><button class="chip on" data-t="in" role="tab">Accedi</button><button class="chip" data-t="rs" role="tab">Password dimenticata</button></div>
+<p class="msg" id="amsg" role="alert" hidden></p>
+<form class="form" id="f-in"><label>Email<input type="email" name="email" required autocomplete="email"></label><label>Password<input type="password" name="password" required autocomplete="current-password"></label><button class="btn ban" type="submit">Accedi</button></form>
+<form class="form" id="f-rs" hidden><label>Email<input type="email" name="email" required></label><button class="btn ban" type="submit">Invia link di reimpostazione</button></form>
+<p class="sub" style="margin-top:26px">L’accesso è riservato agli utenti autorizzati. Non hai un account? <a href="/contatti/"><b>Scrivimi</b></a>.</p>
+</div></section>
